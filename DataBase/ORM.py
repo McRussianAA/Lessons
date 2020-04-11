@@ -1,7 +1,7 @@
 from peewee import *
 import datetime
 
-dbhandle = SqliteDatabase('..//SQLite//library.db')
+dbhandle = SqliteDatabase('..//SQLite//test.db')
 
 class BaseModel(Model):
     class Meta:
@@ -24,4 +24,13 @@ class Abonent(BaseModel):
 dbhandle.connect()
 Abonent.create_table()
 Book.create_table()
+
+book = Book()
+book.Title = 'Test Book'
+book.Authors = 'Test Authors'
+book.Year = 2015
+book.Pages = 123
+
+book.save()
+
 
